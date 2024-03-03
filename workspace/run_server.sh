@@ -12,4 +12,4 @@ if [ ! -d "$SCRIPT_DIR/mission" ]; then
     cp -r "$DZS_PATH"/mpmissions/dayzOffline.chernarusplus "$SCRIPT_DIR/mission/dayzOffline.chernarusplus"
 fi
 
-cmd.exe /c start /D "$WIN_DZ_PATH" DayZDiag_x64.exe -mission="$WIN_SCRIPT_DIR\mission\dayzOffline.chernarusplus" -mod="P:\Mods\@CF;P:\Mods\@COT;P:\Mods\@VRPStunBaton" -filePatching -server -profiles="$WIN_SCRIPT_DIR"\\profiles -config="$WIN_SCRIPT_DIR"\\serverDZ.cfg
+cmd.exe /c start /D "$WIN_DZ_PATH" DayZDiag_x64.exe -mission="$WIN_SCRIPT_DIR\mission\dayzOffline.chernarusplus" -mod="P:\Mods\@CF;P:\Mods\@COT;P:\Mods\@HL2Weapons" -filePatching -server "-profiles=$WIN_SCRIPT_DIR\\profiles" "-config=$WIN_SCRIPT_DIR\\serverDZ.cfg"

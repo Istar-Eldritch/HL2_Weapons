@@ -1,2 +1,2 @@
-# HL2 Stun Baton
+# HL2 Weapons
 
