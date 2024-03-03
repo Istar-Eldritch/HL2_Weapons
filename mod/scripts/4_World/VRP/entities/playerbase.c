@@ -9,7 +9,7 @@ modded class PlayerBase
 			baton.OnHit();
 			if (baton.IsPoweredOn())
 			{
-				GiveShock(50);			
+				GiveShock(-50);			
 			}
 		}
 	}
