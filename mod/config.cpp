@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class VRP_Weapons_StunBaton
+	class VRP_HL2Weapons
 	{
 		units[] = {};
 		weapons[] = {};
@@ -8,24 +8,30 @@ class CfgPatches
 		requiredAddons[] =
 			{
 				"DZ_Data",
-				"DZ_Scripts"
+				"DZ_Scripts",
+				"JM_CF_Scripts",
 			};
 	};
 };
 
 class CfgMods
 {
-	class VRP_Weapons_StunBaton
+	class VRP_HL2Weapons
 	{
 		type = "mod";
 		author = "Istar Eldritch";
-    	dependencies[] = { "World" };
+    	dependencies[] = { "World", "Mission" };
 		class defs
 		{
 			class worldScriptModule
 			{
 				value = "";
-				files[] = {"VRP/weapons/StunBaton/scripts/4_World"};
+				files[] = {"VRP/HL2Weapons/scripts/4_World"};
+			};
+			class missionScriptModule
+			{
+				value = "";
+				files[] = {"VRP/HL2Weapons/scripts/5_Mission"};
 			};
 		};
 	};
@@ -40,7 +46,7 @@ class CfgVehicles
 		scope=2;
 		displayName="Stun Baton";
 		descriptionShort="Is an electrified baton used by Civil Protection officers to enforce the law on unruly citizens";
-		model="\VRP\weapons\StunBaton\data\stunbaton.p3d";
+		model="\VRP\HL2Weapons\data\stunbaton.p3d";
 		debug_ItemCategory=2;
 		rotationFlags=12;
 		repairableWithKits[]={};
@@ -83,7 +89,7 @@ class CfgVehicles
 							1,
 							
 							{
-								"RVP\weapons\StunBaton\data\stunbaton.rvmap"
+								"VRP\HL2Weapons\data\stunbaton.rvmat"
 							}
 						},
 						
@@ -91,7 +97,7 @@ class CfgVehicles
 							0.69999999,
 							
 							{
-								"RVP\weapons\StunBaton\data\stunbaton.rvmap"
+								"VRP\HL2Weapons\data\stunbaton.rvmat"
 							}
 						},
 						
@@ -99,7 +105,7 @@ class CfgVehicles
 							0.5,
 							
 							{
-								"RVP\weapons\StunBaton\data\stunbaton_damage.rvmap"
+								"VRP\HL2Weapons\data\stunbaton_damage.rvmat"
 							}
 						},
 						
@@ -107,7 +113,7 @@ class CfgVehicles
 							0.30000001,
 							
 							{
-								"RVP\weapons\StunBaton\data\stunbaton_damage.rvmap"
+								"VRP\HL2Weapons\data\stunbaton_damage.rvmat"
 							}
 						},
 						
@@ -115,7 +121,7 @@ class CfgVehicles
 							0,
 							
 							{
-								"RVP\weapons\StunBaton\data\stunbaton_destruct.rvmap"
+								"VRP\HL2Weapons\data\stunbaton_destruct.rvmat"
 							}
 						}
 					};
@@ -153,4 +159,32 @@ class CfgVehicles
 			};
 		};
 	};
-}
+};
+
+class CfgSoundShaders {
+
+	class baseCharacter_SoundShader;
+	class HL2_StunBaton_Hit_SoundShader: baseCharacter_SoundShader {
+		range = 20;
+		samples[]=
+		{
+			
+			{
+				"VRP\HL2Weapons\data\stunbaton_hit",
+				1
+			}
+		};
+		volume=1;
+	};
+};
+
+class CfgSoundSets {
+
+	class baseCharacter_SoundSet;
+	class HL2_StunBaton_Hit_SoundSet: baseCharacter_SoundSet {
+		soundShaders[]=
+		{
+			"HL2_StunBaton_Hit_SoundShader"
+		};
+	};
+};
