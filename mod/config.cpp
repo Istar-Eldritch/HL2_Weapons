@@ -8,8 +8,7 @@ class CfgPatches
 		requiredAddons[] =
 			{
 				"DZ_Data",
-				"DZ_Scripts",
-				"JM_CF_Scripts",
+				"DZ_Scripts"
 			};
 	};
 };
@@ -176,6 +175,32 @@ class CfgSoundShaders {
 		};
 		volume=1;
 	};
+
+	class HL2_StunBaton_On_SoundShader: baseCharacter_SoundShader {
+		range = 10;
+		samples[]=
+		{
+			
+			{
+				"VRP\HL2Weapons\data\stunbaton_on",
+				1
+			}
+		};
+		volume=0.5;
+	};
+
+	class HL2_StunBaton_Swing_SoundShader: baseCharacter_SoundShader {
+		range = 10;
+		samples[]=
+		{
+			
+			{
+				"VRP\HL2Weapons\data\stunbaton_swing",
+				1
+			}
+		};
+		volume=0.5;
+	};
 };
 
 class CfgSoundSets {
@@ -185,6 +210,20 @@ class CfgSoundSets {
 		soundShaders[]=
 		{
 			"HL2_StunBaton_Hit_SoundShader"
+		};
+	};
+
+	class HL2_StunBaton_On_SoundSet: baseCharacter_SoundSet {
+		soundShaders[]=
+		{
+			"HL2_StunBaton_On_SoundShader"
+		};
+	};
+
+	class HL2_StunBaton_Swing_SoundSet: baseCharacter_SoundSet {
+		soundShaders[]=
+		{
+			"HL2_StunBaton_Swing_SoundShader"
 		};
 	};
 };

@@ -13,4 +13,18 @@ modded class PlayerBase
 			}
 		}
 	}
+
+	override void OnCommandMelee2Start()
+	{
+		super.OnCommandMelee2Start();
+		if (GetGame().IsServer())
+		{
+			ItemBase itemInHands = GetItemInHands();
+			HL2_StunBaton baton = HL2_StunBaton.Cast(itemInHands);
+			if (baton)
+			{
+				baton.OnSwing(m_MeleeCombat.GetHitType());
+			}
+		}
+	}
 }
