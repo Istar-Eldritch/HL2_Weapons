@@ -16,4 +16,4 @@ cp -r "$SCRIPT_DIR/../LICENSE" "$MOD_PATH/LICENSE"
 cp -r "$SCRIPT_DIR/../README.md" "$MOD_PATH/README.md"
 cp -r "$SCRIPT_DIR/../mod.cpp" "$MOD_PATH/mod.cpp"
 
-cmd.exe /c start /D "$WIN_DZ_TOOL_PATH" AddonBuilder.exe "P:\VRP\weapons\StunBaton\mod" "$WIN_MOD_PATH\addons" -project="P:" -prefix="VRP/weapons/StunBaton" -clear -binarizeFullLogs -sign="$(wslvar "userprofile")\Documents\Keys\IstarIE.biprivatekey"
+cmd.exe /c start /D "$WIN_DZ_TOOL_PATH" AddonBuilder.exe "P:\VRP\HL2Weapons" "$WIN_MOD_PATH\addons" -project="P:" -prefix="VRP/HL2Weapons" -clear -binarizeFullLogs -sign="$(wslvar "userprofile")\Documents\Keys\IstarIE.biprivatekey"

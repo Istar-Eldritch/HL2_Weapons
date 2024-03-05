@@ -1,10 +1,9 @@
 class CfgPatches
 {
-	class VRP_HL2Weapons
+	class VRP_HL2Weapons_USPMatch
 	{
 		units[] = {
 			"HL2_USPMatch",
-			"HL2_StunBaton"
 		};
 		weapons[] = {};
 		requiredVersion = 0.1;
@@ -18,7 +17,7 @@ class CfgPatches
 
 class CfgMods
 {
-	class VRP_HL2Weapons
+	class VRP_HL2Weapons_USPMatch
 	{
 		type = "mod";
 		author = "Istar Eldritch";
@@ -28,205 +27,13 @@ class CfgMods
 			class worldScriptModule
 			{
 				value = "";
-				files[] = {"VRP/HL2Weapons/scripts/4_World"};
+				files[] = {"VRP/HL2Weapons/HL2_USPMatch/scripts/4_World"};
 			};
 			class missionScriptModule
 			{
 				value = "";
-				files[] = {"VRP/HL2Weapons/scripts/5_Mission"};
+				files[] = {"VRP/HL2Weapons/HL2_USPMatch/scripts/5_Mission"};
 			};
-		};
-	};
-};
-
-class CfgVehicles
-{
-	class Inventory_Base;
-	class Powered_Base;
-	class HL2_StunBaton: Powered_Base
-	{
-		scope=2;
-		displayName="Stun Baton";
-		descriptionShort="Is an electrified baton used by Civil Protection officers to enforce the law on unruly citizens";
-		model="\VRP\HL2Weapons\data\stunbaton.p3d";
-		debug_ItemCategory=2;
-		rotationFlags=12;
-		repairableWithKits[]={};
-		repairCosts[]={20};
-		weight=800;
-		absorbency=0.5;
-		itemSize[]={1,4};
-		fragility=0.001;
-		itemBehaviour=1;
-		openItemSpillRange[]={20,50};
-		inventorySlot[]=
-		{
-			"Melee"
-		};
-		isMeleeWeapon=1;
-		attachments[]=
-		{
-			"BatteryD"
-		};
-		class EnergyManager
-		{
-			hasIcon=1;
-			autoSwitchOff=1;
-			energyUsagePerSecond=0.1;
-			plugType=1;
-			attachmentAction=1;
-			wetnessExposure=0.1;
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=200;
-					healthLevels[]=
-					{
-						
-						{
-							1,
-							
-							{
-								"VRP\HL2Weapons\data\stunbaton.rvmat"
-							}
-						},
-						
-						{
-							0.69999999,
-							
-							{
-								"VRP\HL2Weapons\data\stunbaton.rvmat"
-							}
-						},
-						
-						{
-							0.5,
-							
-							{
-								"VRP\HL2Weapons\data\stunbaton_damage.rvmat"
-							}
-						},
-						
-						{
-							0.30000001,
-							
-							{
-								"VRP\HL2Weapons\data\stunbaton_damage.rvmat"
-							}
-						},
-						
-						{
-							0,
-							
-							{
-								"VRP\HL2Weapons\data\stunbaton_destruct.rvmat"
-							}
-						}
-					};
-				};
-			};
-		};
-		class MeleeModes
-		{
-			class Default
-			{
-				ammo="MeleeBluntLight_2";
-				range=1.5;
-			};
-			class Heavy
-			{
-				ammo="MeleeBluntHeavy_2";
-				range=1.8;
-			};
-			class Sprint
-			{
-				ammo="MeleeBluntHeavy_2";
-				range=2.5;
-			};
-		};
-		soundImpactType="metal";
-		class AnimEvents
-		{
-			class SoundWeapon
-			{
-				class drop
-				{
-					soundset="crowbar_drop_SoundSet";
-					id=898;
-				};
-			};
-		};
-	};
-};
-
-class CfgSoundShaders {
-
-	class baseCharacter_SoundShader;
-	class HL2_StunBaton_Hit_SoundShader: baseCharacter_SoundShader {
-		range = 20;
-		samples[]=
-		{
-			
-			{
-				"VRP\HL2Weapons\data\stunbaton_hit",
-				1
-			}
-		};
-		volume=1;
-	};
-
-	class HL2_StunBaton_On_SoundShader: baseCharacter_SoundShader {
-		range = 10;
-		samples[]=
-		{
-			
-			{
-				"VRP\HL2Weapons\data\stunbaton_on",
-				1
-			}
-		};
-		volume=0.5;
-	};
-
-	class HL2_StunBaton_Swing_SoundShader: baseCharacter_SoundShader {
-		range = 10;
-		samples[]=
-		{
-			
-			{
-				"VRP\HL2Weapons\data\stunbaton_swing",
-				1
-			}
-		};
-		volume=0.5;
-	};
-};
-
-class CfgSoundSets {
-
-	class baseCharacter_SoundSet;
-	class HL2_StunBaton_Hit_SoundSet: baseCharacter_SoundSet {
-		soundShaders[]=
-		{
-			"HL2_StunBaton_Hit_SoundShader"
-		};
-	};
-
-	class HL2_StunBaton_On_SoundSet: baseCharacter_SoundSet {
-		soundShaders[]=
-		{
-			"HL2_StunBaton_On_SoundShader"
-		};
-	};
-
-	class HL2_StunBaton_Swing_SoundSet: baseCharacter_SoundSet {
-		soundShaders[]=
-		{
-			"HL2_StunBaton_Swing_SoundShader"
 		};
 	};
 };
@@ -287,8 +94,8 @@ class cfgWeapons
 			{
 			};
 			reloadTime=0.13;
-			recoil="recoil_1911";
-			recoilProne="recoil_1911_prone";
+			recoil="recoil_fnx";
+			recoilProne="recoil_fnx_prone";
 			dispersion=0.0044999998;
 			magazineSlot="magazine";
 		};
@@ -333,7 +140,7 @@ class cfgWeapons
 				{
 					onlyIfBoltIsOpen=1;
 					overrideParticle="smoking_barrel_small";
-					overridePoint="nabojnicestart";
+					overridePoint="Nabojnicestart";
 				};
 			};
 			class OnBulletCasingEject
@@ -341,11 +148,24 @@ class cfgWeapons
 				class ChamberSmokeRaise
 				{
 					overrideParticle="weapon_shot_chamber_smoke";
-					overridePoint="nabojnicestart";
+					overridePoint="Nabojnicestart";
 				};
 			};
 		};
-		weaponStateAnim="dz\anims\anm\player\reloads\1911\w_1911_states.anm";
+		weaponStateAnim="dz\anims\anm\player\reloads\FNP45\w_fnp45_states.anm";
+		boneRemap[]=
+		{
+			"bolt",
+			"Weapon_Bolt",
+			"magazine",
+			"Weapon_Magazine",
+			"bullet",
+			"Weapon_Bullet",
+			"trigger",
+			"Weapon_Trigger",
+			"hammer",
+			"Weapon_Bone_01"
+		};
 	};
 	class HL2_USPMatch: HL2_USPPistolBase
 	{
@@ -355,18 +175,18 @@ class cfgWeapons
 		hiddenSelections[]=
 		{
 		};
-		model="\VRP\HL2Weapons\data\usp_match\model.p3d";
+		model="\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match.p3d";
 		attachments[]=
 		{
 		};
 		itemSize[]={3,2};
 		hiddenSelectionsTextures[]=
 		{
-			"\VRP\HL2Weapons\data\usp_match\usp_match_co.paa"
+			"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match_co.paa"
 		};
 		hiddenSelectionsMaterials[]=
 		{
-			"\VRP\HL2Weapons\data\usp_match\usp_match.rvmat"
+			"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match.rvmat"
 		};
 		class DamageSystem
 		{
@@ -382,7 +202,7 @@ class cfgWeapons
 							1,
 							
 							{
-								"\VRP\HL2Weapons\data\usp_match\usp_match.rvmat"
+								"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match.rvmat"
 							}
 						},
 						
@@ -390,7 +210,7 @@ class cfgWeapons
 							0.69999999,
 							
 							{
-								"\VRP\HL2Weapons\data\usp_match\usp_match.rvmat"
+								"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match.rvmat"
 							}
 						},
 						
@@ -398,7 +218,7 @@ class cfgWeapons
 							0.5,
 							
 							{
-								"\VRP\HL2Weapons\data\usp_match\usp_match_damage.rvmat"
+								"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match_damage.rvmat"
 							}
 						},
 						
@@ -406,7 +226,7 @@ class cfgWeapons
 							0.30000001,
 							
 							{
-								"\VRP\HL2Weapons\data\usp_match\usp_match_damage.rvmat"
+								"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match_damage.rvmat"
 							}
 						},
 						
@@ -414,7 +234,7 @@ class cfgWeapons
 							0,
 							
 							{
-								"\VRP\HL2Weapons\data\usp_match\usp_match_destruct.rvmat"
+								"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match_destruct.rvmat"
 							}
 						}
 					};
@@ -433,7 +253,7 @@ class CfgMagazines
 		scope=2;
 		displayName="USP 15 round magazine";
 		desriptionShort="15 round magazine compatible with USP pistols";
-		model="\VRP\HL2Weapons\data\usp_match\mag_model.p3d";
+		model="\VRP\HL2Weapons\HL2_USPMatch\data\mag\usp_mag.p3d";
 		weight=130;
 		weightPerQuantityUnit=8;
 		mass=10;
@@ -459,7 +279,7 @@ class CfgMagazines
 							1,
 							
 							{
-								"DZ\weapons\attachments\data\p38_mag.rvmat"
+								"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match.rvmat"
 							}
 						},
 						
@@ -467,7 +287,7 @@ class CfgMagazines
 							0.69999999,
 							
 							{
-								"DZ\weapons\attachments\data\p38_mag.rvmat"
+								"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match.rvmat"
 							}
 						},
 						
@@ -475,7 +295,7 @@ class CfgMagazines
 							0.5,
 							
 							{
-								"DZ\weapons\attachments\data\p38_mag_damage.rvmat"
+								"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match_damage.rvmat"
 							}
 						},
 						
@@ -483,7 +303,7 @@ class CfgMagazines
 							0.30000001,
 							
 							{
-								"DZ\weapons\attachments\data\p38_mag_damage.rvmat"
+								"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match_damage.rvmat"
 							}
 						},
 						
@@ -491,7 +311,7 @@ class CfgMagazines
 							0,
 							
 							{
-								"DZ\weapons\attachments\data\p38_mag_destruct.rvmat"
+								"\VRP\HL2Weapons\HL2_USPMatch\data\pistol\usp_match_destruct.rvmat"
 							}
 						}
 					};
@@ -574,12 +394,12 @@ class CfgNonAIVehicles
 	{
 		scope=2;
 		inventorySlot="pistol";
-		model="\VRP\HL2Weapons\data\usp_match\model.p3d";
+		model="\VRP\HL2Weapons\HL2_USPMatch\data\pistol\model.p3d";
 	};
 	class Proxy_HL2_Mag_USP
 	{
 		scope=2;
 		inventorySlot="magazine";
-		model="\VRP\HL2Weapons\data\usp_match\mag_model.p3d"
+		model="\VRP\HL2Weapons\HL2_USPMatch\data\mag\model.p3d"
 	}
 };

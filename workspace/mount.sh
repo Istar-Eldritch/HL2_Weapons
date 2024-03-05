@@ -8,7 +8,8 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cmd.exe /c mkdir "C:\Program Files (x86)\Steam\steamapps\common\DayZ\VRP"
 cmd.exe /c mklink /J "C:\Program Files (x86)\Steam\steamapps\common\DayZ\VRP\HL2Weapons" "$(wslpath -w "$SCRIPT_DIR/../mod")"
 cmd.exe /c mkdir "P:\VRP"
-cmd.exe /c mklink /J "P:\VRP\HL2Weapons" "$(wslpath -w "$SCRIPT_DIR/../mod")"
+cmd.exe /c mklink /J "P:\VRP\HL2Weapons" "$(wslpath -w "$SCRIPT_DIR/../")"
+
 
 # Community Framework
 
