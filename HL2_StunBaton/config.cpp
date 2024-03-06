@@ -171,7 +171,7 @@ class CfgSoundShaders {
 		{
 			
 			{
-				"VRP\HL2Weapons\data\stunbaton_hit",
+				"VRP\HL2Weapons\HL2_StunBaton\data\stunbaton_hit",
 				1
 			}
 		};
@@ -184,7 +184,7 @@ class CfgSoundShaders {
 		{
 			
 			{
-				"VRP\HL2Weapons\data\stunbaton_on",
+				"VRP\HL2Weapons\HL2_StunBaton\data\stunbaton_on",
 				1
 			}
 		};
@@ -197,7 +197,7 @@ class CfgSoundShaders {
 		{
 			
 			{
-				"VRP\HL2Weapons\data\stunbaton_swing",
+				"VRP\HL2Weapons\HL2_StunBaton\data\stunbaton_swing",
 				1
 			}
 		};
